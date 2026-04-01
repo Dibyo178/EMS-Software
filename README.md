@@ -40,3 +40,51 @@ XDEBUG_MODE=off composer install
 
 # Install JS dependencies
 npm install
+```
+
+### 2. Environment Configuration
+```bash
+# Copy example environment file
+cp .env.example .env
+
+# Generate application key
+php artisan key:generate
+```
+### Note: Open .env and set your database and app name:
+```bash
+APP_NAME="School Management"
+VITE_APP_NAME="${APP_NAME}"
+
+DB_DATABASE=your_database_name
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+
+```
+### 3. Database Migration & Assets
+```bash
+# Run migrations and seeders
+php artisan migrate --seed
+
+# Build frontend assets for production
+npm run build
+
+# Or run for development
+npm run dev
+```
+## 📂 Project Structure Highlights
+
+- app/Models/  
+  All core Eloquent models (e.g., Attendance, Exam, Student, Teacher, Invoice).
+
+- app/Http/Controllers/  
+  Backend logic handling for all modules like ExamController and FeeController.
+
+- resources/js/Pages/  
+  Contains Vue.js components and Inertia.js pages for the frontend.
+
+- database/migrations/  
+  Database schema and table structures.
+
+- routes/web.php  
+  All application routes and server-side navigation.
+
